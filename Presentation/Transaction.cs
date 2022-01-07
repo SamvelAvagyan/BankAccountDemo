@@ -15,6 +15,12 @@ namespace Presentation
         public Transaction()
         {
             InitializeComponent();
+            overdraftingLabel1.Hide();
+        }
+
+        private void overdraftingLabel1_Click(object sender, EventArgs e)
+        {
+            overdraftingLabel1.Hide();
         }
     }
 }
