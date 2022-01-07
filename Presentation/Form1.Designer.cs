@@ -29,8 +29,8 @@ namespace Presentation
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.checkingListBox = new System.Windows.Forms.ListBox();
+            this.savingListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -39,25 +39,25 @@ namespace Presentation
             this.checkingLabel = new System.Windows.Forms.Label();
             this.savingsLabel = new System.Windows.Forms.Label();
             this.overdraftLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addTransactionButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox1
+            // checkingListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(241, 101);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(194, 251);
-            this.listBox1.TabIndex = 0;
+            this.checkingListBox.FormattingEnabled = true;
+            this.checkingListBox.Location = new System.Drawing.Point(241, 101);
+            this.checkingListBox.Name = "checkingListBox";
+            this.checkingListBox.Size = new System.Drawing.Size(194, 251);
+            this.checkingListBox.TabIndex = 0;
             // 
-            // listBox2
+            // savingListBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(456, 101);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(194, 251);
-            this.listBox2.TabIndex = 1;
+            this.savingListBox.FormattingEnabled = true;
+            this.savingListBox.Location = new System.Drawing.Point(456, 101);
+            this.savingListBox.Name = "savingListBox";
+            this.savingListBox.Size = new System.Drawing.Size(194, 251);
+            this.savingListBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -137,17 +137,18 @@ namespace Presentation
             this.overdraftLabel.Size = new System.Drawing.Size(292, 25);
             this.overdraftLabel.TabIndex = 9;
             this.overdraftLabel.Text = "You have overdrafted 0.00";
-            this.overdraftLabel.Click += new System.EventHandler(this.overdraftLabel_Click);
+            this.overdraftLabel.Click += new System.EventHandler(this.OverdraftLabelClick);
             // 
-            // button1
+            // addTransactionButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(17, 249);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 67);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Add Transaction";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTransactionButton.Location = new System.Drawing.Point(17, 249);
+            this.addTransactionButton.Name = "addTransactionButton";
+            this.addTransactionButton.Size = new System.Drawing.Size(147, 67);
+            this.addTransactionButton.TabIndex = 10;
+            this.addTransactionButton.Text = "Add Transaction";
+            this.addTransactionButton.UseVisualStyleBackColor = true;
+            this.addTransactionButton.Click += new System.EventHandler(this.AddTransactionButtonClick);
             // 
             // label5
             // 
@@ -168,7 +169,7 @@ namespace Presentation
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(675, 390);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addTransactionButton);
             this.Controls.Add(this.overdraftLabel);
             this.Controls.Add(this.savingsLabel);
             this.Controls.Add(this.checkingLabel);
@@ -177,8 +178,8 @@ namespace Presentation
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.savingListBox);
+            this.Controls.Add(this.checkingListBox);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -190,8 +191,8 @@ namespace Presentation
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox checkingListBox;
+        private System.Windows.Forms.ListBox savingListBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label nameLabel;
@@ -200,7 +201,7 @@ namespace Presentation
         private System.Windows.Forms.Label checkingLabel;
         private System.Windows.Forms.Label savingsLabel;
         private System.Windows.Forms.Label overdraftLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addTransactionButton;
         private System.Windows.Forms.Label label5;
     }
 }

@@ -5,12 +5,8 @@ namespace DemoLibrary
     public class Account
     {
         private List<string> _transactions = new List<string>();
-        public Account(decimal sum)
-        {
-            this.Balance = sum;
-        }
-
         public decimal Balance { get; private set; }
+        public string Name { get; set; }
         public IReadOnlyList<string> Transactions
         {
             get { return this._transactions.AsReadOnly(); }
