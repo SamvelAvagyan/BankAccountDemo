@@ -137,6 +137,7 @@ namespace Presentation
             this.overdraftLabel.Size = new System.Drawing.Size(292, 25);
             this.overdraftLabel.TabIndex = 9;
             this.overdraftLabel.Text = "You have overdrafted 0.00";
+            this.overdraftLabel.Click += new System.EventHandler(this.overdraftLabel_Click);
             // 
             // button1
             // 

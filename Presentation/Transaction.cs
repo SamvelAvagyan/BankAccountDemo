@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentation
 {
-    public partial class Form1 : Form
+    public partial class Transaction : Form
     {
-        public Form1()
+        public Transaction()
         {
             InitializeComponent();
-            overdraftLabel.Hide();
-        }
-
-        private void overdraftLabel_Click(object sender, EventArgs e)
-        {
-            overdraftLabel.Hide();
         }
     }
 }
