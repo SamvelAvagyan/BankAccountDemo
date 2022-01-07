@@ -40,6 +40,11 @@ namespace Presentation
             // sumUpDown
             // 
             this.sumUpDown.Location = new System.Drawing.Point(52, 89);
+            this.sumUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.sumUpDown.Name = "sumUpDown";
             this.sumUpDown.Size = new System.Drawing.Size(184, 20);
             this.sumUpDown.TabIndex = 0;

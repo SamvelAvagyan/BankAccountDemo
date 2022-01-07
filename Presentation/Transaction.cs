@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace Presentation
 {
     public partial class Transaction : Form
     {
-        public Transaction()
+        private Customer _customer;
+        public Transaction(Customer customer)
         {
             InitializeComponent();
             overdraftingLabel.Hide();
+            _customer = customer;
         }
 
         private void OverdraftingLabelClick(object sender, EventArgs e)
@@ -25,7 +28,8 @@ namespace Presentation
 
         private void AddTransactionButtonClick(object sender, EventArgs e)
         {
-
+            bool isSucceded = _customer.CheckingAccount.MakePayment(sumUpDown.Value, transactionName.Text, _customer.SavingAccount);
+            sumUpDown.Value = 0;
         }
     }
 }

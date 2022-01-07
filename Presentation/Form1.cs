@@ -13,7 +13,7 @@ namespace Presentation
 {
     public partial class Form1 : Form
     {
-        Customer customer = new Customer();
+        private Customer customer = new Customer();
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +40,22 @@ namespace Presentation
             customer.SavingAccount.Name = "Samvel's saving account";
             customer.CheckingAccount.AddDeposit(151.57M, "Initial");
             customer.SavingAccount.AddDeposit(140.58M, "Initial");
+            customer.CheckingAccount.TransactionApprovedEvent += CheckingAccountTransactionApprovedEvent;
+            customer.SavingAccount.TransactionApprovedEvent += SavingAccountTransactionApprovedEvent;
+        }
+
+        private void SavingAccountTransactionApprovedEvent(object sender, string e)
+        {
+            savingListBox.DataSource = null;
+            savingListBox.DataSource = customer.SavingAccount.Transactions;
+            savingsLabel.Text = string.Format("{0:C2}", customer.SavingAccount.Balance);
+        }
+
+        private void CheckingAccountTransactionApprovedEvent(object sender, string e)
+        {
+            checkingListBox.DataSource = null;
+            checkingListBox.DataSource = customer.CheckingAccount.Transactions;
+            checkingLabel.Text = string.Format("{0:C2}", customer.CheckingAccount.Balance);
         }
 
         private void OverdraftLabelClick(object sender, EventArgs e)
@@ -49,7 +65,7 @@ namespace Presentation
 
         private void AddTransactionButtonClick(object sender, EventArgs e)
         {
-            Transaction transaction = new Transaction();
+            Transaction transaction = new Transaction(customer);
             transaction.Show();
         }
     }
