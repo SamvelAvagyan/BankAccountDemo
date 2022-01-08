@@ -41,7 +41,15 @@ namespace Presentation
             customer.CheckingAccount.AddDeposit(151.57M, "Initial");
             customer.SavingAccount.AddDeposit(140.58M, "Initial");
             customer.CheckingAccount.TransactionApprovedEvent += CheckingAccountTransactionApprovedEvent;
+            customer.CheckingAccount.OverdraftedEvent += CheckingAccountOverdraftedEvent;
             customer.SavingAccount.TransactionApprovedEvent += SavingAccountTransactionApprovedEvent;
+        }
+
+        private void CheckingAccountOverdraftedEvent(object sender, OverdraftEventArgs e)
+        {
+            overdraftLabel.Text = $"You have overdrafted {string.Format("{0:C2}", e.SumNeeded)}";
+            e.CancelTransaction = denyOverdrafting.Checked;
+            overdraftLabel.Show();
         }
 
         private void SavingAccountTransactionApprovedEvent(object sender, string e)

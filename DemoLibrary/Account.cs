@@ -6,6 +6,7 @@ namespace DemoLibrary
     public class Account
     {
         public event EventHandler<string> TransactionApprovedEvent;
+        public event EventHandler<OverdraftEventArgs> OverdraftedEvent;
         private List<string> _transactions = new List<string>();
         public decimal Balance { get; private set; }
         public string Name { get; set; }
@@ -41,14 +42,23 @@ namespace DemoLibrary
                 {
                     if ((backupAccount.Balance + this.Balance) > sum)
                     {
-                        bool overdraftSucceded = backupAccount.MakePayment(sum - this.Balance, "Overdraft");
+                        decimal sumNeeded = sum - this.Balance;
+                        OverdraftEventArgs args = new OverdraftEventArgs(sumNeeded, paymentName);
+                        OverdraftedEvent?.Invoke(this, args);
+
+                        if (args.CancelTransaction)
+                        {
+                            return false;
+                        }
+
+                        bool overdraftSucceded = backupAccount.MakePayment(sumNeeded, "Overdraft");
 
                         if (!overdraftSucceded)
                         {
                             return false;
                         }
 
-                        AddDeposit(sum - this.Balance, "Overdraft Deposit");
+                        AddDeposit(sumNeeded, "Overdraft Deposit");
                         this._transactions.Add($"Withdrew {string.Format("{0:C2}", sum)} for {paymentName}");
                         this.Balance -= sum;
                         TransactionApprovedEvent?.Invoke(this, paymentName);

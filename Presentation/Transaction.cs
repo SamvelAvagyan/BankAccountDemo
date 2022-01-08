@@ -19,6 +19,13 @@ namespace Presentation
             InitializeComponent();
             overdraftingLabel.Hide();
             _customer = customer;
+            customer.CheckingAccount.OverdraftedEvent += CheckingAccountOverdraftedEvent;
+        }
+
+        private void CheckingAccountOverdraftedEvent(object sender, OverdraftEventArgs e)
+        {
+            overdraftingLabel.Show();
+            
         }
 
         private void OverdraftingLabelClick(object sender, EventArgs e)

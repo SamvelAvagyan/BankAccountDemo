@@ -41,6 +41,7 @@ namespace Presentation
             this.overdraftLabel = new System.Windows.Forms.Label();
             this.addTransactionButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.denyOverdrafting = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // checkingListBox
@@ -142,7 +143,7 @@ namespace Presentation
             // addTransactionButton
             // 
             this.addTransactionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTransactionButton.Location = new System.Drawing.Point(17, 249);
+            this.addTransactionButton.Location = new System.Drawing.Point(17, 285);
             this.addTransactionButton.Name = "addTransactionButton";
             this.addTransactionButton.Size = new System.Drawing.Size(147, 67);
             this.addTransactionButton.TabIndex = 10;
@@ -160,6 +161,17 @@ namespace Presentation
             this.label5.TabIndex = 11;
             this.label5.Text = "Banking Account Demo";
             // 
+            // denyOverdrafting
+            // 
+            this.denyOverdrafting.AutoSize = true;
+            this.denyOverdrafting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denyOverdrafting.Location = new System.Drawing.Point(17, 244);
+            this.denyOverdrafting.Name = "denyOverdrafting";
+            this.denyOverdrafting.Size = new System.Drawing.Size(216, 29);
+            this.denyOverdrafting.TabIndex = 12;
+            this.denyOverdrafting.Text = "Stop Overdrafting";
+            this.denyOverdrafting.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -168,6 +180,7 @@ namespace Presentation
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(675, 390);
+            this.Controls.Add(this.denyOverdrafting);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.addTransactionButton);
             this.Controls.Add(this.overdraftLabel);
@@ -203,6 +216,7 @@ namespace Presentation
         private System.Windows.Forms.Label overdraftLabel;
         private System.Windows.Forms.Button addTransactionButton;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox denyOverdrafting;
     }
 }
 
