@@ -1,12 +1,5 @@
 ﻿using DemoLibrary;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentation
@@ -25,7 +18,6 @@ namespace Presentation
         private void CheckingAccountOverdraftedEvent(object sender, OverdraftEventArgs e)
         {
             overdraftingLabel.Show();
-            
         }
 
         private void OverdraftingLabelClick(object sender, EventArgs e)
